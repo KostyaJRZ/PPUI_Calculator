@@ -33,7 +33,7 @@
             android:singleLine="true"
             custom:maxTextSize="60sp"
             custom:minTextSize="50sp"
-            tools:text="00" />
+            tools:text="200" />
 
         <com.ppui.calculator.CalculatorEditText
             android:id="@+id/tv_display"

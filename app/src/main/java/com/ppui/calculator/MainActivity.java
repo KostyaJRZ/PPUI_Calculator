@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity
             preferences.setBooleanPreference(AppPreferences.APP_SMART_CALCULATIONS, true);
             preferences.setStringPreference(AppPreferences.APP_HISTORY, "");
             preferences.setStringPreference(AppPreferences.APP_EQUATION_STRING, "");
-            preferences.setBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT, true);
+            preferences.setBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT, false);
         }
 
         //getting primary color of the theme
@@ -1078,21 +1078,19 @@ public class MainActivity extends AppCompatActivity
         int b = viewRoot.getWidth();
         int finalRadius = (int) Math.sqrt((l * l) + (b * b));
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Animator anim = ViewAnimationUtils
-                    .createCircularReveal(viewRoot, cx, cy, 0, finalRadius);
-            viewRoot.setVisibility(View.VISIBLE);
-            anim.setDuration(300);
-            anim.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    view.setVisibility(View.INVISIBLE);
-                    mCurrentAnimator = null;
-                }
-            });
-            mCurrentAnimator = anim;
-            anim.start();
-        }
+        Animator anim = ViewAnimationUtils
+                .createCircularReveal(viewRoot, cx, cy, 0, finalRadius);
+        viewRoot.setVisibility(View.VISIBLE);
+        anim.setDuration(300);
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                view.setVisibility(View.INVISIBLE);
+                mCurrentAnimator = null;
+            }
+        });
+        mCurrentAnimator = anim;
+        anim.start();
     }
 
     @Override
