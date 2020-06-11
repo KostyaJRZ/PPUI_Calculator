@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -27,20 +27,18 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.getkeepsafe.taptargetview.TapTarget;
-import com.getkeepsafe.taptargetview.TapTargetSequence;
+import com.ppui.calculator.R;
 
 import java.util.Objects;
 import java.util.Stack;
 
-import static com.example.arch1.testapplication.Evaluate.formatString;
-import static com.example.arch1.testapplication.Evaluate.isAnError;
-import static com.example.arch1.testapplication.Evaluate.isNumber;
+import static com.ppui.calculator.Evaluate.formatString;
+import static com.ppui.calculator.Evaluate.isAnError;
+import static com.ppui.calculator.Evaluate.isNumber;
 
 public class MainActivity extends AppCompatActivity
         implements View.OnClickListener, TextWatcher, CalculatorEditText.OnTextSizeChangeListener {
@@ -211,7 +209,7 @@ public class MainActivity extends AppCompatActivity
                         Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
                         result.startAnimation(shake);
                         break;
-                    }else {
+                    } else {
                         String historyEqu = Evaluate.getCalculatedExpression();
                         history.addToHistory(historyEqu, res, System.currentTimeMillis());
                         tempResult = res;
@@ -901,7 +899,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.mr:
                 String memory = preferences.getStringPreference(AppPreferences.APP_MEMORY_VALUE);
-                if(!isNumber(memory)) {
+                if (!isNumber(memory)) {
                     preferences.setStringPreference(AppPreferences.APP_MEMORY_VALUE, "");
                     break;
                 }
@@ -926,10 +924,10 @@ public class MainActivity extends AppCompatActivity
                         String m1 = preferences.getStringPreference(AppPreferences.APP_MEMORY_VALUE);
                         String m2 = result.getText().toString();
                         m2 = m2.replace(",", "");
-                        if(!isNumber(m2)) {
+                        if (!isNumber(m2)) {
                             break;
                         }
-                        if(!isNumber(m1)) {
+                        if (!isNumber(m1)) {
                             preferences.setStringPreference(AppPreferences.APP_MEMORY_VALUE, "");
                             break;
                         }
@@ -948,10 +946,10 @@ public class MainActivity extends AppCompatActivity
                                 .getStringPreference(AppPreferences.APP_MEMORY_VALUE);
                         String m2 = result.getText().toString();
                         m2 = m2.replace(",", "");
-                        if(!isNumber(m2)) {
+                        if (!isNumber(m2)) {
                             break;
                         }
-                        if(!isNumber(m1)) {
+                        if (!isNumber(m1)) {
                             preferences.setStringPreference(AppPreferences.APP_MEMORY_VALUE, "");
                             break;
                         }
@@ -1142,9 +1140,9 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.action_menu, menu);
         this.menu = menu;
-        for(int i = 0; i < menu.size(); i++){
+        for (int i = 0; i < menu.size(); i++) {
             Drawable drawable = menu.getItem(i).getIcon();
-            if(drawable != null) {
+            if (drawable != null) {
                 drawable.mutate();
                 drawable.setColorFilter(getTextColor(), PorterDuff.Mode.SRC_ATOP);
             }
@@ -1159,20 +1157,6 @@ public class MainActivity extends AppCompatActivity
         Intent intent;
 
         switch (resId) {
-            case R.id.settings:
-                intent = new Intent(MainActivity.this, SettingsActivity.class);
-                startActivity(intent);
-                break;
-
-            case R.id.tutorial:
-                startTutorial();
-                break;
-
-            case R.id.about:
-                intent = new Intent(MainActivity.this, AboutActivity.class);
-                startActivity(intent);
-                break;
-
             case R.id.history:
                 intent = new Intent(MainActivity.this, HistoryActivity.class);
                 startActivity(intent);
@@ -1182,37 +1166,9 @@ public class MainActivity extends AppCompatActivity
                 intent = new Intent(MainActivity.this, HistoryActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.share:
-                intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Calculator Plus Expression");
-                String msg = shareExpression();
-                if(msg == null) {
-                    Toast.makeText(this, getString(R.string.share_error),
-                            Toast.LENGTH_SHORT).show();
-                    break;
-                }
-                intent.putExtra(Intent.EXTRA_TEXT, msg);
-                startActivity(Intent.createChooser(intent, getString(R.string.choose)));
-                break;
-
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private String shareExpression() {
-        if (!isEquationEmpty()) {
-            String res = Objects.requireNonNull(result.getText()).toString().trim();
-            if (res.equals("") || isAnError(res)) {
-                //Cannot share invalid expressions
-                return null;
-            } else {
-                String expression = Evaluate.getCalculatedExpression();
-                return expression + " = " + res;
-            }
-        }
-        return null;
     }
 
     @Override
@@ -1225,63 +1181,6 @@ public class MainActivity extends AppCompatActivity
             // Otherwise, select the previous pad.
             mPadViewPager.setCurrentItem(mPadViewPager.getCurrentItem() - 1);
         }
-    }
-
-    private void startTutorial() {
-
-        TapTargetSequence tapTargetSequence = new TapTargetSequence(this);
-        View shareView = toolbar.findViewById(R.id.share);
-        TapTarget delete = TapTarget.forView(mainLayout.findViewById(R.id.del),
-                getString(R.string.delete_button), getString(R.string.delete_button_desc))
-                .outerCircleColor(R.color.colorBluePrimary)
-                .outerCircleAlpha(0.90f)
-                .targetCircleColor(R.color.colorWhite)
-                .titleTextSize(28)
-                .tintTarget(false)
-                .titleTextColor(R.color.colorWhite)
-                .descriptionTextColor(R.color.colorWhite)
-                .descriptionTextSize(18)
-                .cancelable(false);
-        TapTarget angle = TapTarget.forToolbarMenuItem(toolbar, R.id.deg, getString(R.string.angle_button),
-                getString(R.string.angle_button_desc))
-                .outerCircleColor(R.color.colorBluePrimary)
-                .outerCircleAlpha(0.9f)
-                .targetCircleColor(R.color.colorWhite)
-                .titleTextSize(28)
-                .tintTarget(true)
-                .titleTextColor(R.color.colorWhite)
-                .descriptionTextColor(R.color.colorWhite)
-                .descriptionTextSize(18)
-                .cancelable(false);
-        TapTarget options = TapTarget.forToolbarOverflow(toolbar,
-                getString(R.string.options_menu), getString(R.string.options_menu_desc))
-                .outerCircleColor(R.color.colorBluePrimary)
-                .outerCircleAlpha(0.90f)
-                .targetCircleColor(R.color.colorWhite)
-                .titleTextSize(28)
-                .titleTextColor(R.color.colorWhite)
-                .descriptionTextColor(R.color.colorWhite)
-                .descriptionTextSize(18)
-                .cancelable(false);
-        if(shareView!=null) {
-            TapTarget share = TapTarget.forToolbarMenuItem(toolbar, R.id.share, getString(R.string.share_button),
-                    getString(R.string.share_button_desc))
-                    .outerCircleColor(R.color.colorBluePrimary)
-                    .outerCircleAlpha(0.9f)
-                    .targetCircleColor(R.color.colorWhite)
-                    .titleTextSize(28)
-                    .tintTarget(true)
-                    .titleTextColor(R.color.colorWhite)
-                    .descriptionTextColor(R.color.colorWhite)
-                    .descriptionTextSize(18)
-                    .cancelable(false);
-
-            tapTargetSequence.targets(delete, angle, share, options);
-        } else {
-            tapTargetSequence.targets(delete, angle, options);
-        }
-
-        tapTargetSequence.start();
     }
 
     private int getTextColor() {

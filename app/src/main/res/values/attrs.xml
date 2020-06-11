@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="buttonPrimary" format="reference"/>
-    <attr name="buttonSecondary" format="reference"/>
-    <attr name="displayStyle" format="reference"/>
-    <attr name="displayTextStyle" format="reference"/>
-    <attr name="clearStyle" format="reference"/>
-    <attr name="buttonAdv" format="reference"/>
-    <attr name="iconColor" format="color"/>
-    <attr name="clearColor" format="color"/>
+    <attr name="buttonPrimary" format="reference" />
+    <attr name="buttonSecondary" format="reference" />
+    <attr name="displayStyle" format="reference" />
+    <attr name="displayTextStyle" format="reference" />
+    <attr name="clearStyle" format="reference" />
+    <attr name="buttonAdv" format="reference" />
+    <attr name="iconColor" format="color" />
+    <attr name="clearColor" format="color" />
 
     <declare-styleable name="CalculatorEditText">
         <attr name="minTextSize" format="dimension" />

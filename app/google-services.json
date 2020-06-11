@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:94576200764:android:6cac2a64df6b5fd6",
         "android_client_info": {
-          "package_name": "com.gigaworks.tech.calculator"
+          "package_name": "com.ppui.calculator"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "94576200764-ia2qfmh81dv0khmtv4ehon6j4ds3i4eo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.gigaworks.tech.calculator",
+            "package_name": "com.ppui.calculator",
             "certificate_hash": "44c2969cb2ddfd63f8fb7e47520dd37d0c703ff1"
           }
         },

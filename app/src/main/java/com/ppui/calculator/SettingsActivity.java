@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -20,6 +20,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ppui.calculator.BuildConfig;
+import com.ppui.calculator.R;
 import com.warkiz.widget.IndicatorSeekBar;
 
 import java.util.ArrayList;
@@ -78,7 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
         int finalColor = color;
         mAdapter = new ListAdapter(this, setListData(), (data, position) -> {
             switch (position) {
-                case 0 :
+                case 0:
                     intent = new Intent(SettingsActivity.this, GeneralSettingsActivity.class);
                     startActivity(intent);
                     break;
@@ -104,7 +106,6 @@ public class SettingsActivity extends AppCompatActivity {
                     break;
                 case 5:
                     CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder()
-                            .addDefaultShareMenuItem()
                             .setToolbarColor(finalColor)
                             .setShowTitle(true)
                             .build();
@@ -242,13 +243,7 @@ public class SettingsActivity extends AppCompatActivity {
         list.add(getPrecisionData());
         data = new ListData(getString(R.string.settings_angle), getAngle(), R.drawable.ic_outline_track_changes_24px);
         list.add(data);
-        data = new ListData(getString(R.string.settings_share), getString(R.string.settings_share_desc), R.drawable.ic_outline_share_24px);
-        list.add(data);
-        data = new ListData(getString(R.string.settings_translate), getString(R.string.settings_translate_desc), R.drawable.ic_translate_black_24dp);
-        list.add(data);
         data = new ListData(getString(R.string.settings_report), getString(R.string.settings_report_desc), R.drawable.ic_outline_feedback_24px);
-        list.add(data);
-        data = new ListData(getString(R.string.title_activity_about),  getString(R.string.version) + " " + BuildConfig.VERSION_NAME, R.drawable.ic_outline_info_24px);
         list.add(data);
 //        data = new ListData("Delete History", "Never", R.drawable.ic_history_black_24dp);
 //        list.add(data);
@@ -324,7 +319,7 @@ public class SettingsActivity extends AppCompatActivity {
         final IndicatorSeekBar indicatorSeekBar = precisionDialog.findViewById(R.id.indicatorSeekBar);
 
         indicatorSeekBar.setProgress(getPrecision());
-        indicatorSeekBar.customTickTexts(new String[] {"1", "7", "15", "30", "Never"});
+        indicatorSeekBar.customTickTexts(new String[]{"1", "7", "15", "30", "Never"});
 
         cancelButton.setOnClickListener(v -> precisionDialog.dismiss());
 

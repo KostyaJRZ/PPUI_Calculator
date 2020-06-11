@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import org.junit.Test;
 

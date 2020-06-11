@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Context;
 
@@ -152,13 +152,13 @@ class Evaluate {
         num = num.stripTrailingZeros();
 
         if (num.compareTo(new BigDecimal("0")) == 0) {
-            if(preferences.getBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT)
+            if (preferences.getBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT)
                     && (temp.compareTo(new BigDecimal("0")) != 0)) {
                 return format(temp, 2);
             }
             return "0";
         }
-        if(preferences.getBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT)) {
+        if (preferences.getBooleanPreference(AppPreferences.APP_SCIENTIFIC_RESULT)) {
             return toScientific(num.toPlainString());
         }
         return num.toPlainString();
@@ -281,10 +281,10 @@ class Evaluate {
     private static String toScientific(String ans) {
         String temp = ans;
         int scale = 7;
-        while (temp.length()>11) {
+        while (temp.length() > 11) {
             temp = format(new BigDecimal(temp), scale);
             scale--;
-            if(scale==1)
+            if (scale == 1)
                 break;
         }
         return temp;
@@ -825,7 +825,7 @@ class Evaluate {
             if (temp.equals("^")) {
                 BigDecimal num1 = new BigDecimal(stack.pop());
                 int num2 = Integer.parseInt(token.pop());
-                if(num2 >= 0) {
+                if (num2 >= 0) {
                     try {
                         stack.push(num1.pow(num2).toPlainString());
                     } catch (ArithmeticException e) {
@@ -981,8 +981,8 @@ class Evaluate {
     static String getCalculatedExpression() {
         String equation = calculatedExpression;
         equation = equation.replaceAll(Math.E + "", "e");
-        equation = equation.replaceAll("" + Math.PI,"\u03c0");
-        equation = equation.replace( "/","÷");
+        equation = equation.replaceAll("" + Math.PI, "\u03c0");
+        equation = equation.replace("/", "÷");
         equation = equation.replace("*", "\u00d7");
         return equation;
     }

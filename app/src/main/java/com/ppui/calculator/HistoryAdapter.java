@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Context;
 
@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.ppui.calculator.R;
 
 import java.util.ArrayList;
 

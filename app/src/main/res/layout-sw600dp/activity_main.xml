@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <com.example.arch1.testapplication.CalculatorEditText
+        <com.ppui.calculator.CalculatorEditText
             android:id="@+id/et_display1"
             style="?displayTextStyle"
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             android:cursorVisible="false"
             tools:text="0" />
 
-        <com.example.arch1.testapplication.CalculatorEditText
+        <com.ppui.calculator.CalculatorEditText
             android:id="@+id/tv_display"
             style="?displayTextStyle"
             android:layout_width="match_parent"

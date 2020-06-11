@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 /*
  * Copyright (C) 2014 The Android Open Source Project
@@ -24,6 +24,8 @@ import androidx.viewpager.widget.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ppui.calculator.R;
 
 public class CalculatorPadViewPager extends ViewPager {
 

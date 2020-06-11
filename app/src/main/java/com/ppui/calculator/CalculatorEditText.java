@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -31,32 +31,35 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.TextView;
+
 import androidx.appcompat.widget.AppCompatEditText;
+
+import com.ppui.calculator.R;
 
 public class CalculatorEditText extends AppCompatEditText {
 
     private final static ActionMode.Callback NO_SELECTION_ACTION_MODE_CALLBACK =
             new ActionMode.Callback() {
-        @Override
-        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-            return false;
-        }
+                @Override
+                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                    return false;
+                }
 
-        @Override
-        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-            // Prevents the selection action mode on double tap.
-            return false;
-        }
+                @Override
+                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+                    // Prevents the selection action mode on double tap.
+                    return false;
+                }
 
-        @Override
-        public void onDestroyActionMode(ActionMode mode) {
-        }
+                @Override
+                public void onDestroyActionMode(ActionMode mode) {
+                }
 
-        @Override
-        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-            return false;
-        }
-    };
+                @Override
+                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                    return false;
+                }
+            };
 
     private final float mMaximumTextSize;
     private final float mMinimumTextSize;

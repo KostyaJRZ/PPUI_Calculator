@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -10,6 +10,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.ppui.calculator.R;
 
 public class ThemeActivity extends AppCompatActivity implements View.OnClickListener {
 

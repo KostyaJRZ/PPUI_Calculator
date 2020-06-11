@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Switch;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.ppui.calculator.R;
 
 public class GeneralSettingsActivity extends AppCompatActivity {
 
@@ -50,11 +52,6 @@ public class GeneralSettingsActivity extends AppCompatActivity {
         toolbar.setBackgroundColor(color);
 
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
-
-        numberFormatterSwitch = findViewById(R.id.switch1);
-        smartCalculationSwitch = findViewById(R.id.switch2);
-        scientificResultSwitch = findViewById(R.id.switch3);
-
 
         //setting preference values
         numberFormatterSwitch.setChecked(preferences.getBooleanPreference(AppPreferences.APP_NUMBER_FORMATTER));

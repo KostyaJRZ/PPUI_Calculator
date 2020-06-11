@@ -19,38 +19,45 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
-        <com.example.arch1.testapplication.CalculatorEditText
+        <com.ppui.calculator.CalculatorEditText
             android:id="@+id/et_display1"
             style="?displayTextStyle"
-            android:layout_width="match_parent"
+            android:layout_width="374dp"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@null"
+            android:cursorVisible="false"
+            android:fontFamily="@font/productsans"
             android:gravity="bottom|end"
+            android:includeFontPadding="false"
+            android:singleLine="true"
             custom:maxTextSize="60sp"
             custom:minTextSize="50sp"
-            android:singleLine="true"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/productsans"
-            android:cursorVisible="false"
             tools:text="00" />
 
-        <com.example.arch1.testapplication.CalculatorEditText
+        <com.ppui.calculator.CalculatorEditText
             android:id="@+id/tv_display"
             style="?displayTextStyle"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_width="375dp"
+            android:layout_height="16dp"
             android:layout_weight="0.75"
-            android:inputType="none"
+            android:cursorVisible="false"
             android:focusable="false"
+            android:fontFamily="@font/productsans"
             android:gravity="bottom|end"
+            android:includeFontPadding="false"
+            android:inputType="none"
+            android:singleLine="true"
+            android:textColor="#8E8E8E"
             custom:maxTextSize="45sp"
             custom:minTextSize="35sp"
-            android:singleLine="true"
-            android:includeFontPadding="false"
-            android:fontFamily="@font/productsans"
-            android:cursorVisible="false"
             tools:text="200" />
+
+        <View
+            android:id="@+id/divider2"
+            android:layout_width="375dp"
+            android:layout_height="40dp"
+            android:background="#FFFFFF" />
     </LinearLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -58,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_end="475dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -67,7 +74,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.75" />
 
-    <com.example.arch1.testapplication.CalculatorPadViewPager
+    <com.ppui.calculator.CalculatorPadViewPager
         android:id="@+id/pad_pager"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -89,7 +96,7 @@
             android:id="@+id/slidingLayout"
             layout="@layout/two" />
 
-    </com.example.arch1.testapplication.CalculatorPadViewPager>
+    </com.ppui.calculator.CalculatorPadViewPager>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"

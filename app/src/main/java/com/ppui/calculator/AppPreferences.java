@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -22,7 +22,7 @@ public class AppPreferences {
     final static String APP_SCIENTIFIC_RESULT = "app.scientific.string";
 
     public AppPreferences(Context context) {
-        String SHARED_PREF_STRING = "com.example.arch1.testapplication";
+        String SHARED_PREF_STRING = "com.ppui.calculator";
         sharedPreferences = context.getSharedPreferences(SHARED_PREF_STRING, Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
     }

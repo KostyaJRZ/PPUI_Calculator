@@ -1,18 +1,16 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.browser.customtabs.CustomTabsIntent;
-import saschpe.android.customtabs.CustomTabsHelper;
-import saschpe.android.customtabs.WebViewFallback;
 
 import android.util.TypedValue;
-import android.widget.TextView;
+
+import com.ppui.calculator.BuildConfig;
+import com.ppui.calculator.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,9 +35,6 @@ public class AboutActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        TextView version = findViewById(R.id.version);
-        TextView build = findViewById(R.id.build);
-        TextView privacy = findViewById(R.id.privacy);
         context = this;
 
         TypedValue typedValue = new TypedValue();
@@ -66,20 +61,7 @@ public class AboutActivity extends AppCompatActivity {
 
         Date buildDate = BuildConfig.buildTime;
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
-        build.setText(getString(R.string.release_date) + " " + sdf.format(buildDate));
-        version.setText(getString(R.string.version) + " " + BuildConfig.VERSION_NAME);
 
-
-        //privacy policy link
-        privacy.setOnClickListener(v -> {
-            CustomTabsIntent customTabsIntent = new CustomTabsIntent.Builder()
-                    .addDefaultShareMenuItem()
-                    .setToolbarColor(color)
-                    .setShowTitle(true)
-                    .build();
-            CustomTabsHelper.addKeepAliveExtra(context, customTabsIntent.intent);
-            CustomTabsHelper.openCustomTab(context, customTabsIntent, Uri.parse(PRIVACY_URL), new WebViewFallback());
-        });
     }
 
 }

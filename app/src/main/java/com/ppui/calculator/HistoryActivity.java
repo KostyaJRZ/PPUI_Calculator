@@ -1,4 +1,4 @@
-package com.example.arch1.testapplication;
+package com.ppui.calculator;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -18,6 +18,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import com.ppui.calculator.R;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.arch1.testapplication">
+    package="com.ppui.calculator">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/DefAppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.ppui.calculator.MainActivity"
             android:windowSoftInputMode="stateAlwaysHidden|adjustNothing">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,25 +19,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name="com.ppui.calculator.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.ppui.calculator.MainActivity" />
         <activity
-            android:name=".ThemeActivity"
+            android:name="com.ppui.calculator.ThemeActivity"
             android:label="@string/title_activity_theme"
-            android:parentActivityName=".SettingsActivity" />
+            android:parentActivityName="com.ppui.calculator.SettingsActivity" />
         <activity
-            android:name=".AboutActivity"
+            android:name="com.ppui.calculator.AboutActivity"
             android:label="@string/title_activity_about"
-            android:parentActivityName=".SettingsActivity"/>
+            android:parentActivityName="com.ppui.calculator.SettingsActivity" />
         <activity
-            android:name=".HistoryActivity"
+            android:name="com.ppui.calculator.HistoryActivity"
             android:label="@string/title_activity_history"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName="com.ppui.calculator.MainActivity" />
         <activity
-            android:name=".GeneralSettingsActivity"
+            android:name="com.ppui.calculator.GeneralSettingsActivity"
             android:label="@string/title_activity_general_settings"
-            android:parentActivityName=".SettingsActivity"/>
+            android:parentActivityName="com.ppui.calculator.SettingsActivity" />
     </application>
 
 </manifest>
